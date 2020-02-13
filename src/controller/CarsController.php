@@ -3,21 +3,27 @@
 
 namespace App\Controller;
 
-class CarsController {
+class CarsController extends AbstractController {
     
     public function index() {
 
-$cars = [
-    [
-        "brand" => "Ford",
-        "model" => "Fiesta"
-    ],
-    [
-        "brand" => "BMW",
-        "model" => "Série 1"
-    ]
-    ];
+        $cars = $this->container->getCarManager()->findAll();
 
-        include_once __DIR__ . '/../../template/cars/index.php';
+        echo $this->container->getTwig()->render('/cars/index.html.twig', [
+            'cars' => $cars, // On envoie la variable $cars à notre template. Il la recevra nommée "cars".
+        ]);
+
+
     }
+
+    public function show(int $id) {
+
+        $car = $this->container->getcarManager()->findOneById($id);
+
+
+        echo $this->container->getTwig()->render('/cars/show.html.twig', [
+            'cars' => $car, // On envoie la variable $cars à notre template. Il la recevra nommée "cars".
+        ]);   
+}
+
 }

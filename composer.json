@@ -1,6 +1,7 @@
 {
     "require": {
-        "bramus/router": "~1.4"
+        "bramus/router": "~1.4",
+        "twig/twig": "^1.42"
     },
     
     "autoload": {
@@ -10,6 +11,8 @@
             "Model\\": "model/",
             "Service\\":"service/"
         }
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^3.4"
     }
-
 }

@@ -15,8 +15,10 @@
 <ul>
 
       <?php foreach ($cars as $car) : ?>
-      <li>
-      <?= $car ['brand'] ?> - <?= $car['model']?></li>
+              {% for car in cars %}
+            <li><a href="cars/{{car.id}} "> {{car.id}} - {{car.brand}} {{ car.model }}</a></li>
+        {% endfor %}
+    </ul>
 
       <?php endforeach; ?>
       
